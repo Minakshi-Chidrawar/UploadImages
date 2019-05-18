@@ -17,3 +17,6 @@ Route::get('/', function () {
 
 Route::get('form','FormController@create');
 Route::post('form','FormController@store');
+
+Route::get('upload','UploadController@getUpload');
+Route::post('upload','UploadController@postUpload');
