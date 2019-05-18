@@ -1,7 +1,6 @@
 <html lang="en">
 <head>
   <title>Laravel Multiple File Upload Example</title>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 </head>
 <body>
@@ -28,9 +27,11 @@
   {{csrf_field()}}
 
         <div class="input-group control-group increment" >
-          <input type="file" name="filename[]" class="form-control">
+        <label class="btn btn-default btn-file">
+            Browse <input type="file" name="filename[]" class="form-control" style="display: none;">
+          </label>
           <div class="input-group-btn"> 
-            <button class="btn btn-success" type="button"><i class="glyphicon glyphicon-plus"></i>Add</button>
+            <button class="btn btn-success btn-file" type="button"><i class="glyphicon glyphicon-plus"></i>Add</button>
           </div>
         </div>
         <div class="clone hide">
@@ -41,29 +42,39 @@
             </div>
           </div>
         </div>
-
         <button type="submit" class="btn btn-primary" style="margin-top:10px">Submit</button>
-
   </form>        
   </div>
 
-
-<script type="text/javascript">
-
-
-    $(document).ready(function() {
-
-      $(".btn-success").click(function(){ 
-          var html = $(".clone").html();
-          $(".increment").after(html);
-      });
-
-      $("body").on("click",".btn-danger",function(){ 
-          $(this).parents(".control-group").remove();
-      });
-
+  <script type="text/javascript">
+    $("#fileImg").fileinput({
+        theme: 'fa',
+        uploadUrl: "/image-view",
+        uploadExtraData: function() {
+            return {
+                _token: $("input[name='_token']").val(),
+            };
+        },
+        allowedFileExtensions: ['jpg', 'png', 'gif'],
+        overwriteInitial: false,
+        maxFileSize:2000,
+        maxFilesNum: 10,
+        slugCallback: function (filename) {
+            return filename.replace('(', '_').replace(']', '_');
+        }
     });
 
-</script>
+      $(document).ready(function() {
+        $(".btn-success").click(function(){ 
+            var html = $(".clone").html();
+            $(".increment").after(html);
+        });
+
+        $("body").on("click",".btn-danger",function(){ 
+            $(this).parents(".control-group").remove();
+        });
+      });
+  </script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
 </body>
 </html>
