@@ -1,0 +1,152 @@
+  /* Make the image fully responsive */
+  html, body {
+    background-color: #e9b6bb;
+    color: #636b6f;
+    font-family: 'Lobster', cursive;
+    /* font-weight: bold; */
+    margin: 0;
+    /* letter-spacing: 0.1em; */
+}
+
+.carousel-img {
+    height: 500px;
+}
+
+h2 {
+  color: #721c24;
+  font-family: 'Roboto', cursive;
+  letter-spacing: normal !important;
+}
+
+p {
+  color: #721c24;
+  font-family: 'Roboto', cursive;
+  font-size: 14.5px;
+  font-weight: initial !important;
+  letter-spacing: normal !important;
+}
+
+/* .fa {
+  padding: 20px;
+  font-size: 20px;
+  width: 20px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 5px;
+  border-radius: 50%;
+} */
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.bs-callout {
+    padding: 20px 10px 10px 20px;
+    margin: 20px 0px;
+    border-width: 1px 1px 1px 5px;
+    border-style: solid;
+    border-color: #7b0d0d;
+    border-image: none;
+    border-radius: 0;
+    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.176);
+}
+
+h1 {
+  color: #7b0d0d;
+}
+
+h5 {
+  color: #721c24;
+  font-family: 'sans-serif', cursive;
+  letter-spacing: normal !important;
+}
+
+.font-color {
+  color: #721c24;
+  font-family: 'Roboto', cursive;
+  font-size: 14px;
+}
+
+.horoscope-img {
+  width: 341px; 
+  height: 200px; 
+  float: left; 
+  margin: 6px 6px 6px 0px;
+}
+
+.thank-you {
+  text-align: center;
+  font-size: 16px; 
+  font-weight: bold; 
+  color: #7b0d0d;
+}
+
+div-table4 {
+  width: 45%;
+  margin-left: 25%;
+}
+
+btn-service {
+  box-shadow: 0 5px #7b0d0d;
+  background: #7b0d0d;
+  color: #ffffff;
+  border-radius: 14px;
+  padding: 0px 15px;
+  width: 10%;
+  height: 35px;
+  vertical-align: center;
+}
+
+.para {
+  font-size: 16px;
+  font-weight: bold;
+  font-family: 'Merriweather', sans-serif;
+}
+
+.templeActivities {
+  color: #721c24;
+  font-family: 'Roboto', cursive;
+  font-size: 14.5px;
+  font-weight: initial !important;
+  letter-spacing: normal !important; 
+}
+
+.col1 {
+  width: 20%;
+  vertical-align: 0px;
+  padding-bottom: 20px;
+  font-weight: bolder;
+}
+
+.giftaid {
+  float: left;
+  margin-top: 0px;
+  margin-right: 8px;
+}
+
+.sign-off {
+  margin-top: 40px;  
+}
+
+.inavlid-feedback {
+  color: red;
+}
+
+.subPages {
+  padding: 20px 10px 10px 20px;
+  margin: 20px 0px;
+  border: 1px solid #7b0d0d;
+  border-radius: 0px 20px;
+  box-shadow: 10px 10px 6px rgba(0, 0, 0, 0.176);
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload {
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+}
