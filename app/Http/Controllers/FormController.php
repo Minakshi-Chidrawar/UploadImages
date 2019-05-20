@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use File;
 use App\Form;
+use Intervention\Image\Facades\Image as Image;
 
 class FormController extends Controller
 {
@@ -31,9 +32,14 @@ class FormController extends Controller
         {
            foreach($request->file('filename') as $image)
            {
-               $name=$image->getClientOriginalName();
+               $name = $image->getClientOriginalName();
                $image->move($path, $name) ;
-               $data[] = $name;  
+               $data[] = $name;
+
+               $thumb = Image::make($image);
+               $thumb->fit(400);
+               $thumbName = 'test-' . $name;
+               $thumb->move($path, $thumbName);
            }
         }
 
