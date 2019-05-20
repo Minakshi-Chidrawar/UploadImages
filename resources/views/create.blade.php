@@ -41,7 +41,7 @@
           <div class="row">
             <div class="col-md-12">
               <div class="form-group">
-                <label for="file-upload" class="custom-file-upload">
+                <label for="file-upload" class="custom-file-upload btn btn-default">
                     <i class="fa fa-image fa-2x"></i> Upload Image/s
                 </label>
                 <input type="file" name="filename[]" id="file-upload">
@@ -51,8 +51,15 @@
           </div>
         </div>
         <div class="clone hide">
+          
           <div class="control-group input-group" style="margin-top:10px">
-            <input type="file" name="filename[]" class="form-control">
+            <div class="form-group">
+                <label for="file-upload" class="custom-file-upload btn btn-default">
+                    <i class="fa fa-image fa-2x"></i> Upload Image/s
+                </label>
+                <input type="file" name="filename[]">
+              </div>
+
             <div class="input-group-btn"> 
               <button class="btn btn-danger" type="button"><i class="glyphicon glyphicon-remove"></i> Remove</button>
             </div>
