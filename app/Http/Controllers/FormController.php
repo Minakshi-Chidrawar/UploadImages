@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use File;
 use App\Form;
-use Intervention\Image\Facades\Image as Image;
+use Image;
 
 class FormController extends Controller
 {
@@ -24,11 +24,11 @@ class FormController extends Controller
        $folderName = $request->name;
        $path = public_path() . '/upload/' . $folderName . '/';   
    
-       if(!File::isDirectory($path)){
+        if(!File::isDirectory($path)){
            File::makeDirectory($path, 0777, true);
-       }
+        }
       
-       if($request->hasfile('filename'))
+        if($request->hasfile('filename'))
         {
            foreach($request->file('filename') as $image)
            {
@@ -36,10 +36,8 @@ class FormController extends Controller
                $image->move($path, $name) ;
                $data[] = $name;
 
-               $thumb = Image::make($image);
-               $thumb->fit(400);
                $thumbName = 'test-' . $name;
-               $thumb->move($path, $thumbName);
+               $thumb = Image::make($image)->fit(400)->move($path, $thumbName);
            }
         }
 
