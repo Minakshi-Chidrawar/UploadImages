@@ -17,35 +17,29 @@ class FormController extends Controller
    public function store(Request $request)
    {
        $this->validate($request, [
-               'filename' => 'required',
-               'filename.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'name' => 'required',
+            'filename' => 'required',
+            'filename.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
        ]);
 
        $folderName = $request->name;
        $path = public_path() . '/upload/' . $folderName;   
-   
+          
         if(!File::isDirectory($path)){
-           File::makeDirectory($path, 775, true);
+           File::makeDirectory($path, 777, true);
         }
       
+        dd($request->hasfile('filename'));
+
         if($request->hasfile('filename'))
         {
            foreach($request->file('filename') as $image)
            {
                $name = $image->getClientOriginalName();
-               //$image->move($path, $name) ;
-               $data[] = $name;
-
-               $thumbName = 'test-' . $name;
-               $thumb = Image::make($image)->fit(400)->save($path, $thumbName);
+               $resizeImage = Image::make($image->getRealPath())->resize(400,400)->save($path . '/' . $name);
            }
         }
 
         return back()->with('success', 'Your images has been successfully');
-        // dd($folderName);
-        // $form= new Form();
-        // $form->filename=json_encode($data);
-            
-        // $form->save();
    }
 }
