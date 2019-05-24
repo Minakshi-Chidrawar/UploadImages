@@ -1,4 +1,4 @@
-<html lang="en">
+<!DOCTYPE html>
 <head>
   <title>Laravel Multiple File Upload Example</title>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
@@ -42,9 +42,10 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label for="file-upload" class="custom-file-upload btn btn-default">
-                    <i class="fa fa-image fa-2x"></i> Upload Image/s
+                    <i class="glyphicon glyphicon-upload"></i> Upload Image/s
                 </label>
-                <input type="file" name="filename[]" id="file-upload">
+                <input type="file" name="filename[]" id="file-upload" multiple>
+                <img id="pre-image" width="100" height="100" /> 
               </div>
               <button class="btn btn-success" type="button"><i class="glyphicon glyphicon-plus"></i>Add</button>
             </div>
@@ -55,9 +56,9 @@
           <div class="control-group input-group" style="margin-top:10px">
             <div class="form-group">
                 <label for="file-upload" class="custom-file-upload btn btn-default">
-                    <i class="fa fa-image fa-2x"></i> Upload Image/s
+                    <i class="glyphicon glyphicon-upload"></i> Upload Image/s
                 </label>
-                <input type="file" name="filename[]">
+                <input type="file" name="filename[]" multiple>
               </div>
 
             <div class="input-group-btn"> 
