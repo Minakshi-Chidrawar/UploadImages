@@ -29,17 +29,57 @@ class FormController extends Controller
            File::makeDirectory($path, 777, true);
         }
       
-        dd($request->hasfile('filename'));
+        //dd($request->hasfile('filename'));
 
         if($request->hasfile('filename'))
         {
            foreach($request->file('filename') as $image)
            {
                $name = $image->getClientOriginalName();
-               $resizeImage = Image::make($image->getRealPath())->resize(400,400)->save($path . '/' . $name);
+               $resizeImage = Image::make($image->getRealPath())->fit(400)->save($path . '/' . $name);
            }
         }
 
         return back()->with('success', 'Your images has been successfully');
    }
+
+   public function imagesUpload()
+   {
+       return view('imagesUpload');
+   }
+
+   public function imagesUploadPost(Request $request)
+   {
+        request()->validate([
+           'uploadFile' => 'required',
+        ]);
+
+       foreach ($request->file('uploadFile') as $key => $value) {
+           $imageName = time(). $key . '.' . $value->getClientOriginalExtension();
+           $value->move(public_path('images'), $imageName);
+        }
+
+       return response()->json(['success'=>'Images Uploaded Successfully.']);
+   }
+
+   public function uploadImage()
+   {
+       return view('uploadImage');
+   }
+
+   public function uploadImagePost(Request $request)
+   {
+       dd($request);
+       
+        request()->validate([
+           'uploadFile' => 'required',
+        ]);
+
+       foreach ($request->file('uploadFile') as $key => $value) {
+           $imageName = time(). $key . '.' . $value->getClientOriginalExtension();
+           $value->move(public_path('images'), $imageName);
+        }
+
+       return response()->json(['success'=>'Images Uploaded Successfully.']);
+   }   
 }
