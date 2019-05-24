@@ -17,3 +17,9 @@ Route::get('/', function () {
 
 Route::get('form','FormController@create');
 Route::post('form','FormController@store');
+
+Route::get('images-upload', 'FormController@imagesUpload');
+Route::post('images-upload', 'FormController@imagesUploadPost')->name('images.upload');
+
+Route::get('uploadImage','FormController@uploadImage');
+Route::post('uploadImage','FormController@uploadImagePost');
